@@ -43,14 +43,5 @@ Na barra superior de ferramentas, você encontra:
 * **Menu Suspenso (ComboBox):** Permite selecionar manualmente qual forma geométrica você deseja desenhar (caso não queira usar o teclado).
 * **Botão "Limpar Tela":** Apaga todos os objetos desenhados no painel de uma só vez, retornando à tela em branco.
 
----
 
-## 💻 Como Executar o Projeto
-
-1. Certifique-se de ter o **Java Development Kit (JDK)** instalado em sua máquina.
-2. Faça o clone ou baixe os arquivos deste repositório.
-3. Abra o projeto em sua IDE favorita (IntelliJ IDEA, Eclipse, VS Code, etc.).
-4. Execute a classe principal (que contém o método `main` e invoca `Menu.iniciar()`).
-
----
 **Tecnologias Utilizadas:** Java, `javax.swing.*`, `java.awt.*`

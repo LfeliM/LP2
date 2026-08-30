@@ -1,6 +1,12 @@
-# 🎨 Editor de Formas Geométricas (Java Swing)
+# 🎨 Interface Grafica
 
-Um aplicativo de desenho interativo feito em Java utilizando as bibliotecas **Swing** e **AWT**. Este projeto permite aos usuários desenhar, mover e deletar formas geométricas básicas em um painel, utilizando comandos intuitivos de mouse e atalhos de teclado.
+Como proposto no video da playlist do curso de LP2 e na atividade do classroom, projeto foi desenvolvido com o objetivo de cumprir o os seguintes objetivos.
+
+- Pelo menos 4 figuras diferentes
+    1. Criação e remoção
+    2. Propriedades ajustáveis
+    3. Posição, tamanho e z-order
+    4. Cor de contorno e cor de fundo
 
 ## 🚀 Funcionalidades
 

@@ -119,6 +119,8 @@ public class Menu {
                         currentY = startY;
                         desenhando = true;
                     }
+
+                    repaint();
                 }
 
                 public void mouseDragged(MouseEvent e) {
@@ -144,12 +146,7 @@ public class Menu {
 
                 public void mouseReleased(MouseEvent e) {
 
-                    if (formaSelecionada != null) {
-                        formaSelecionada = null;
-                        repaint();
-                    }
-
-                    else if (desenhando) {
+                    if (desenhando) {
                         currentX = e.getX();
                         currentY = e.getY();
                         desenhando = false;

@@ -5,6 +5,7 @@ import MODEL.FIGURE.RECT;
 import MODEL.FIGURE.LINE;
 import MODEL.FIGURE.ELIP;
 import MODEL.FIGURE.TRI;
+import MODEL.FIGURE.CARRO;
 import java.awt.*;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseListener;
@@ -27,6 +28,11 @@ public class DRAWNVIEW extends Frame {
     private String ferramentaAtual = "Retângulo";
 
     public DRAWNVIEW(List<FIGURE> formas) {
+//Declara lista de figuras
+        public ArrayList<FIGURE> listaFiguras = new ArrayList<>();
+//Declara o foco da lista
+        public int IndiceFoco = -1;
+
         this.formas = formas;
 
         setTitle("Teste AWT - Editor Vetorial MVC (Cores e Atalhos)");
@@ -43,7 +49,7 @@ public class DRAWNVIEW extends Frame {
         barraFerramentas.setBackground(Color.LIGHT_GRAY);
 
         Label lblAtalhos = new Label("Formas: [R] Rect | [L] Linha | [E] Elip | [T] Tri | [C] Limpar");
-        Label lblCores = new Label("Cores: [1] Cinza | [2] Vermelho | [3] Verde | [4] Azul | [5] Amarelo");
+        Label lblCores = new Label("Cores: [4] Cinza | [5] Vermelho | [6] Verde | [7] Azul | [8] Amarelo");
         lblCores.setForeground(Color.DARK_GRAY);
 
         lblFerramenta = new Label("Ferramenta: Retângulo");
@@ -101,6 +107,21 @@ public class DRAWNVIEW extends Frame {
         @Override
         public void paint(Graphics g) {
             super.paint(g);
+//cria o laço de figuras que estarão em foco
+            for (int i=0; i < listaFiguras.size(); i++){
+                FIGURE figura = listaFiguras.get(i):
+                figura.desenhar(g);
+                if(i == IndiceFoco){
+                    get.setColor(Color.RED);
+                    int minX = Math min(figura.getX1(), figura.getX2());
+                    int minY = Math.min(figura.getY1(), figura.getY2());
+                    int larg = Math.abs(figura.getX2()-figura.getX1());
+                    int alt = Math.abs(figura.getY2()-figura.getY1());
+                    g.drawRect(minX - 5, minY -5, larg +10, alt +10);
+                    g.setColor(Color.Black) ;
+                }
+            }
+                
             for (FIGURE forma : formas) { desenharFigura(g, forma); }
             if (formaTemporaria != null) { desenharFigura(g, formaTemporaria); }
         }

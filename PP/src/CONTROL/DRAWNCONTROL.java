@@ -5,6 +5,7 @@ import MODEL.FIGURE.RECT;
 import MODEL.FIGURE.LINE;
 import MODEL.FIGURE.ELIP;
 import MODEL.FIGURE.TRI;
+import MODEL.FIGURE.CARRO;
 import VIEW.DRAWNVIEW;
 
 import java.awt.Color;
@@ -43,15 +44,24 @@ public class DRAWNCONTROL {
                     case 'l': view.setFerramentaAtual("Linha"); break;
                     case 'e': view.setFerramentaAtual("Elipse"); break;
                     case 't': view.setFerramentaAtual("Triângulo"); break;
+//cases alterados pra função do foco(commit 2) e do carro(commit 1)
+                    case '1': view.setFerramentaAtual("CARRO"); break;
+                    case '2';
+/
+                        if(!tela.listaFiguras.isEmpty()){
+                            tela.IndiceFoco = (tela.IndiceFoco + 1) % tela.listaFiguras.size();
+                            tela.painelDesenho.repaint();
+                        }
+                        break;
                     case 'c':
                         model.clear();
                         view.atualizarTela();
                         break;
-                    case '1': mudarCor(new Color(235, 235, 235), "Cinza"); break;
-                    case '2': mudarCor(Color.RED, "Vermelho"); break;
-                    case '3': mudarCor(Color.GREEN, "Verde"); break;
-                    case '4': mudarCor(Color.BLUE, "Azul"); break;
-                    case '5': mudarCor(Color.YELLOW, "Amarelo"); break;
+                    case '4': mudarCor(new Color(235, 235, 235), "Cinza"); break;
+                    case '5': mudarCor(Color.RED, "Vermelho"); break;
+                    case '6': mudarCor(Color.GREEN, "Verde"); break;
+                    case '7': mudarCor(Color.BLUE, "Azul"); break;
+                    case '8': mudarCor(Color.YELLOW, "Amarelo"); break;
                 }
             }
         };
@@ -166,6 +176,11 @@ public class DRAWNCONTROL {
 
                     FIGURE nova = criarFormaTemp();
                     if (nova != null) {
+                        tela.listaFiguras.add(NovaFigura);
+
+                        tela.IndiceFoco = telaFiguras.size
+
+                        tela.painelDesenho.repaint
                         model.add(nova);
                     }
                     view.atualizarTela();
@@ -203,6 +218,7 @@ public class DRAWNCONTROL {
             if (largura == 0 && altura == 0) return null;
 
             switch (tipoStr) {
+                case "Carro": nova = new CARRO(xMin, yMin, largura, altura); break;
                 case "Elipse": nova = new ELIP(xMin, yMin, largura, altura); break;
                 case "Triângulo": nova = new TRI(xMin, yMin, largura, altura); break;
                 case "Retângulo":
